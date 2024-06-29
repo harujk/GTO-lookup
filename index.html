@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen PDF Viewer with Dropdown</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #pdfViewer {
+            width: 100%;
+            height: calc(100% - 40px); /* Adjust the height to account for the dropdown */
+        }
+        #dropdown {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropdown">
+        <label for="pageSelector">Select Page:</label>
+        <select id="pageSelector" onchange="goToPage()">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+    <iframe id="pdfViewer" src="https://drive.google.com/file/d/1hGS12H15wcW5-EnF4QhIsYd6bIyA7r5u/preview" frameborder="0"></iframe>
+
+    <script>
+        // Table data: [first column value, second column value]
+        const tableData = [
+            [256, 3], [257, 3], [258, 3], [259, 3], [262, 3],
+            [263, 3], [272, 3], [273, 3], [276, 3], [277, 3],
+            [278, 3], [279, 3], [281, 3], [283, 3], [284, 3],
+            [287, 3], [290, 3], [251, 5], [252, 5], [258, 5],
+            [260, 5], [280, 5], [241, 7], [243, 7], [244, 7],
+            [245, 7], [246, 7], [247, 7], [235, 9], [236, 9],
+            [237, 9], [238, 9], [239, 9], [240, 9], [241, 9],
+            [421, 9], [401, 9], [402, 9], [405, 9], [415, 11],
+            [417, 11], [418, 11], [420, 11], [421, 11], [422, 13],
+            [425, 15], [428, 15], [445, 17], [465, 19], [466, 19],
+            [467, 19], [468, 19], [469, 19], [470, 19], [471, 19],
+            [472, 19], [473, 19], [474, 19], [475, 19], [476, 19],
+            [477, 19], [478, 19], [479, 19], [480, 19], [481, 19],
+            [482, 19], [453, 21], [454, 21], [456, 21], [458, 21],
+            [459, 21], [460, 21], [462, 21], [463, 21], [431, 23],
+            [451, 23], [452, 23], [473, 23], [101, 25], [102, 25],
+            [103, 25], [104, 25], [105, 25], [106, 25], [107, 25],
+            [108, 25], [109, 25], [110, 25], [111, 25], [112, 25],
+            [113, 25], [114, 25], [115, 25], [116, 25], [117, 25],
+            [118, 25], [119, 25], [121, 25], [123, 25], [124, 25],
+            [125, 25], [126, 25], [127, 25], [128, 25], [129, 25],
+            [130, 25], [131, 25], [132, 25], [133, 25], [501, 27],
+            [502, 27], [503, 27], [504, 27], [505, 27], [506, 27],
+            [507, 27], [508, 27], [509, 27], [510, 27], [511, 27],
+            [512, 27], [513, 27], [514, 27], [515, 27], [516, 27],
+            [517, 27], [518, 27], [519, 27], [520, 27], [521, 27],
+            [522, 27], [523, 27], [524, 27], [525, 27], [526, 27],
+            [527, 27], [528, 27], [529, 27], [530, 27], [531, 27],
+            [532, 27], [533, 27], [534, 27], [535, 27], [536, 27],
+            [537, 27], [538, 27], [539, 27]
+        ];
+
+        // Populate dropdown
+        const pageSelector = document.getElementById('pageSelector');
+        tableData.forEach(([value, page]) => {
+            const option = document.createElement('option');
+            option.value = page;
+            option.textContent = value;
+            pageSelector.appendChild(option);
+        });
+
+        // Function to navigate to the selected page
+        function goToPage() {
+            const selectedPage = pageSelector.value;
+            const pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = `https://drive.google.com/file/d/1hGS12H15wcW5-EnF4QhIsYd6bIyA7r5u/preview#page=${selectedPage}`;
+        }
+    </script>
+</body>
+</html>
