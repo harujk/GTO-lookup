@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
+    const crewOptions = [
+        { value: 1, text: '1' },
+        { value: 2, text: '2' }
+    ];
     
     // Populate FIN dropdown options
     data.forEach(item => {
@@ -67,17 +71,33 @@ document.addEventListener('DOMContentLoaded', function() {
         finDropdown.appendChild(option);
     });
 
-    // Update image when FIN dropdown changes
-    finDropdown.addEventListener('change', function() {
+    crewOptions.forEach(option => {
+        const crewOption = document.createElement('option');
+        crewOption.value = option.value;
+        crewOption.textContent = option.text;
+        crewDropdown.appendChild(crewOption);
+    });
+
+    // Update image when FIN or Crew dropdown changes
+    function updateImage() {
         const selectedFin = parseInt(finDropdown.value);
         const selectedData = data.find(item => item.fin === selectedFin);
         if (selectedData) {
-            const pageNumber = selectedData.pageNumber;
+            let pageNumber = selectedData.pageNumber;
+            if (crewDropdown.value === '2') {
+                pageNumber += 1;
+            }
             const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
             fullscreenImage.src = imageName;
         }
-    });
+    }
+
+    finDropdown.addEventListener('change', updateImage);
+    crewDropdown.addEventListener('change', updateImage);
+
+    // Initial image load
+    updateImage();
 
     // Initial adjustment on page load
-    window.dispatchEvent(new Event('resize'));
+    //window.dispatchEvent(new Event('resize'));
 });
