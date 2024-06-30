@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
+    
 
     const finDropdown = document.getElementById('finDropdown');
     const crewDropdown = document.getElementById('crewDropdown');
@@ -95,4 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
         let imageUrl = `url('GTO${pageNumber.toString().padStart(2, '0')}.jpg')`;
         imageContainer.style.backgroundImage = imageUrl;
     }
+
+    // Adjust imageContainer size on window resize
+    window.addEventListener('resize', function() {
+        imageContainer.style.width = window.innerWidth + 'px';
+        imageContainer.style.height = window.innerHeight + 'px';
+    });
+
+    // Initial adjustment on page load
+    window.dispatchEvent(new Event('resize'));
 });
