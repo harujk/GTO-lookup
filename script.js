@@ -1,6 +1,6 @@
 // Define your data array
 const data = [
-    { id: 1, pageNumber: 1 }, { id: 101, pageNumber: 25 }, { id: 102, pageNumber: 25 }, { id: 103, pageNumber: 25 },
+    { id: 101, pageNumber: 25 }, { id: 102, pageNumber: 25 }, { id: 103, pageNumber: 25 },
     { id: 104, pageNumber: 25 }, { id: 105, pageNumber: 25 }, { id: 106, pageNumber: 25 },
     { id: 107, pageNumber: 25 }, { id: 108, pageNumber: 25 }, { id: 109, pageNumber: 25 },
     { id: 110, pageNumber: 25 }, { id: 111, pageNumber: 25 }, { id: 112, pageNumber: 25 },
@@ -54,6 +54,12 @@ const data = [
     { id: 540, pageNumber: 27 }
 ];
 
+// Wait for the DOM content to load before executing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const finDropdown = document.getElementById('finDropdown');
+    const crewDropdown = document.getElementById('crewDropdown');
+    const imageView = document.getElementById('imageView');
+
     // Populate FIN dropdown with options
     data.forEach(item => {
         let option = document.createElement('option');
@@ -73,21 +79,6 @@ const data = [
             crewDropdown.disabled = true;
             imageView.src = "GTO0001.jpg"; // Default image
         }
-    });
-
-    // Event listener for Crew dropdown change
-    crewDropdown.addEventListener('change', function() {
-        let basePageNumber = parseInt(finDropdown.value);
-        let crewValue = parseInt(this.value);
-        let pageNumber = basePageNumber + (crewValue - 1);
-        displayImage(pageNumber);
-    });
-
-    // Function to display image based on page number
-    function displayImage(pageNumber) {
-        let imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
-        imageView.src = imageName;
-    }
     });
 
    
