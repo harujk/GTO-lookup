@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const finDropdown = document.getElementById('finDropdown');
+    const crewDropdown = document.getElementById('crewDropdown');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    
     const data = [
         { id: 0, pageNumber: 1 }, { id: 101, pageNumber: 25 }, { id: 102, pageNumber: 25 }, { id: 103, pageNumber: 25 },
         { id: 104, pageNumber: 25 }, { id: 105, pageNumber: 25 }, { id: 106, pageNumber: 25 },
@@ -55,52 +59,23 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     
-
-    const finDropdown = document.getElementById('finDropdown');
-    const crewDropdown = document.getElementById('crewDropdown');
-    const imageContainer = document.getElementById('imageContainer');
-
-    // Populate FIN dropdown with options
+    // Populate FIN dropdown options
     data.forEach(item => {
-        let option = document.createElement('option');
-        option.value = item.pageNumber;
-        option.textContent = item.id;
+        const option = document.createElement('option');
+        option.value = item.fin;
+        option.textContent = item.fin === 0 ? 'Select FIN' : item.fin;
         finDropdown.appendChild(option);
     });
 
-    // Event listener for FIN dropdown change
+    // Update image when FIN dropdown changes
     finDropdown.addEventListener('change', function() {
-        let selectedPageNumber = parseInt(this.value);
-        if (selectedPageNumber !== 0) {
-            crewDropdown.disabled = false;
-            crewDropdown.selectedIndex = 0; // Reset crew dropdown to 1
-            displayImage(selectedPageNumber);
-        } else {
-            crewDropdown.disabled = true;
-            imageContainer.style.backgroundImage = "url('GTO0001.jpg')"; // Default image
+        const selectedFin = parseInt(finDropdown.value);
+        const selectedData = data.find(item => item.fin === selectedFin);
+        if (selectedData) {
+            const pageNumber = selectedData.pageNumber;
+            const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+            fullscreenImage.src = imageName;
         }
-    });
-
-    // Event listener for Crew dropdown change
-    crewDropdown.addEventListener('change', function() {
-        let selectedCrew = parseInt(this.value);
-        let selectedPageNumber = parseInt(finDropdown.value);
-        if (selectedCrew === 2) {
-            selectedPageNumber += 1;
-        }
-        displayImage(selectedPageNumber);
-    });
-
-    // Function to display image based on selected page number
-    function displayImage(pageNumber) {
-        let imageUrl = `url('GTO${pageNumber.toString().padStart(2, '0')}.jpg')`;
-        imageContainer.style.backgroundImage = imageUrl;
-    }
-
-    // Adjust imageContainer size on window resize
-    window.addEventListener('resize', function() {
-        imageContainer.style.width = window.innerWidth + 'px';
-        imageContainer.style.height = window.innerHeight + 'px';
     });
 
     // Initial adjustment on page load
