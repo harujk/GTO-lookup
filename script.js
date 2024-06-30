@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const finDropdown = document.getElementById('finDropdown');
     const crewDropdown = document.getElementById('crewDropdown');
-    const imageView = document.getElementById('imageView');
+    const imageContainer = document.getElementById('imageContainer');
 
     // Populate FIN dropdown with options
     data.forEach(item => {
@@ -75,16 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
             displayImage(selectedPageNumber);
         } else {
             crewDropdown.disabled = true;
-            imageView.src = "GTO0001.jpg"; // Default image
+            imageContainer.style.backgroundImage = "url('GTO0001.jpg')"; // Default image
         }
     });
 
-    // Function to display image based on page number
+    // Function to display image based on selected page number
     function displayImage(pageNumber) {
-        let imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
-        imageView.src = imageName;
+        let imageUrl = `url('GTO${pageNumber.toString().padStart(2, '0')}.jpg')`;
+        imageContainer.style.backgroundImage = imageUrl;
     }
-});
 });
 
    
