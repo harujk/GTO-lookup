@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTO Lookup Web</title>
+    <title>Fullscreen Image Viewer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>GTO Lookup Web</h1>
-        
-        <label for="finDropdown">FIN:</label>
-        <select id="finDropdown">
-            <option value="0">Select FIN</option>
-            <!-- Options will be populated dynamically using JavaScript -->
-        </select>
-        
-        <label for="crewDropdown">Crew:</label>
-        <select id="crewDropdown" disabled>
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
-        
-        <div id="imageContainer" class="image-container">
-            <!-- Background image will be applied dynamically using JavaScript -->
+        <div class="header">
+            <label for="finDropdown">FIN:</label>
+            <select id="finDropdown">
+                <!-- Options will be dynamically populated using JavaScript -->
+            </select>
+            
+            <label for="crewDropdown">Crew:</label>
+            <select id="crewDropdown">
+                <!-- Options will be dynamically populated using JavaScript -->
+            </select>
+        </div>
+
+        <div class="image-container">
+            <img id="fullscreenImage" src="GTO0001.jpg" alt="Image">
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
