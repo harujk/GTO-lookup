@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
     const finDropdown = document.getElementById('finDropdown');
     const crewDropdown = document.getElementById('crewDropdown');
     const fullscreenImage = document.getElementById('fullscreenImage');
