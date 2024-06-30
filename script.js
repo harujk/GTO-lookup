@@ -54,12 +54,6 @@ const data = [
     { id: 540, pageNumber: 27 }
 ];
 
-// Wait for the DOM content to load before executing JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    const finDropdown = document.getElementById('finDropdown');
-    const crewDropdown = document.getElementById('crewDropdown');
-    const imageView = document.getElementById('imageView');
-
     // Populate FIN dropdown with options
     data.forEach(item => {
         let option = document.createElement('option');
@@ -79,6 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
             crewDropdown.disabled = true;
             imageView.src = "GTO0001.jpg"; // Default image
         }
+    });
+
+    // Event listener for Crew dropdown change
+    crewDropdown.addEventListener('change', function() {
+        let basePageNumber = parseInt(finDropdown.value);
+        let crewValue = parseInt(this.value);
+        let pageNumber = basePageNumber + (crewValue - 1);
+        displayImage(pageNumber);
+    });
+
+    // Function to display image based on page number
+    function displayImage(pageNumber) {
+        let imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+        imageView.src = imageName;
+    }
     });
 
    
