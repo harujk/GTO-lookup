@@ -58,13 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
-    console.log("entered"); 
     // Populate FIN dropdown options
     data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.pageNumber;
         option.textContent = item.id === 0 ? 'Select FIN' : item.id;
-    console.log(option.textContent); 
         finDropdown.appendChild(option);
     });
 
@@ -75,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { value: '2', text: '2' }
     ];
     
-    console.log("2"); 
     crewOptions.forEach(option => {
         const crewOption = document.createElement('option');
         crewOption.value = option.value;
@@ -83,18 +80,17 @@ document.addEventListener('DOMContentLoaded', function() {
         crewDropdown.appendChild(crewOption);
     });
 
-    console.log("3"); 
     // Set default value for Crew dropdown
     crewDropdown.value = '1';
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
-        const pageNumber = parseInt(finDropdown.value);
+        int pageNumber = parseInt(finDropdown.value);
 //        const selectedFin = parseInt(finDropdown.value);
 //        const selectedData = data.find(item => item.id === selectedFin);
-    console.log(pageNumber);
 //        if (selectedData) {
 //            let pageNumber = selectedData.pageNumber;
+    console.log(crewDropdown.value);
             if (crewDropdown.value === '2') {
                 pageNumber += 1;
             }
