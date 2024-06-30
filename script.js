@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
+
     const finDropdown = document.getElementById('finDropdown');
     const crewDropdown = document.getElementById('crewDropdown');
     const imageContainer = document.getElementById('imageContainer');
@@ -79,11 +80,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Event listener for Crew dropdown change
+    crewDropdown.addEventListener('change', function() {
+        let selectedCrew = parseInt(this.value);
+        let selectedPageNumber = parseInt(finDropdown.value);
+        if (selectedCrew === 2) {
+            selectedPageNumber += 1;
+        }
+        displayImage(selectedPageNumber);
+    });
+
     // Function to display image based on selected page number
     function displayImage(pageNumber) {
         let imageUrl = `url('GTO${pageNumber.toString().padStart(2, '0')}.jpg')`;
         imageContainer.style.backgroundImage = imageUrl;
     }
 });
-
-   
