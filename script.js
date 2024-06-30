@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
     const finDropdown = document.getElementById('finDropdown');
     const crewDropdown = document.getElementById('crewDropdown');
     const fullscreenImage = document.getElementById('fullscreenImage');
@@ -67,17 +66,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Populate Crew dropdown options
-    const crewOptions = [
-        { value: 1, text: '1' },
-        { value: 2, text: '2' }
-    ];
+//    const crewOptions = [
+//        { value: 1, text: '1' },
+//        { value: 2, text: '2' }
+//    ];
     
-    crewOptions.forEach(option => {
-        const crewOption = document.createElement('option');
-        crewOption.value = option.value;
-        crewOption.textContent = option.text;
-        crewDropdown.appendChild(crewOption);
-    });
+//    crewOptions.forEach(option => {
+//        const crewOption = document.createElement('option');
+//        crewOption.value = option.value;
+//        crewOption.textContent = option.text;
+//       crewDropdown.appendChild(crewOption);
+//    });
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
@@ -85,16 +84,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedData = data.find(item => item.fin === selectedFin);
         if (selectedData) {
             let pageNumber = selectedData.pageNumber;
-            if (crewDropdown.value === '2') {
-                pageNumber += 1;
-            }
+ //           if (crewDropdown.value === '2') {
+ //               pageNumber += 1;
+ //           }
             const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
             fullscreenImage.src = imageName;
         }
     }
 
     finDropdown.addEventListener('change', updateImage);
-    crewDropdown.addEventListener('change', updateImage);
+//    crewDropdown.addEventListener('change', updateImage);
 
     // Initial image load
     updateImage();
