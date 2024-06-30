@@ -78,6 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
             imageView.src = "GTO0001.jpg"; // Default image
         }
     });
+
+    // Function to display image based on page number
+    function displayImage(pageNumber) {
+        let imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+        imageView.src = imageName;
+    }
+});
 });
 
    
