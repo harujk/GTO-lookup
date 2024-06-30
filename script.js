@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         finDropdown.appendChild(option);
     });
 
-    console.log("1"); 
     // Populate Crew dropdown options
     const crewOptions = [
         { value: '1', text: '1' },
@@ -86,19 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
         let pageNumber = parseInt(finDropdown.value);
-//        const selectedFin = parseInt(finDropdown.value);
-//        const selectedData = data.find(item => item.id === selectedFin);
-//        if (selectedData) {
-//            let pageNumber = selectedData.pageNumber;
-    console.log(crewDropdown.value);
-            if (crewDropdown.value === '2') {
-                pageNumber += 1;
-            }
-    console.log(pageNumber);
-            const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
-            console.log(imageName);
-            fullscreenImage.src = imageName;
-//        }
+        if (crewDropdown.value === '2') {
+            pageNumber += 1;
+        }
+        const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+        fullscreenImage.src = imageName;
     }
 
     finDropdown.addEventListener('change', updateImage);
