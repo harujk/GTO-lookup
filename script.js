@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 474, pageNumber: 19 }, { id: 475, pageNumber: 19 },
         { id: 476, pageNumber: 19 }, { id: 477, pageNumber: 19 }, { id: 478, pageNumber: 19 },
         { id: 479, pageNumber: 19 }, { id: 480, pageNumber: 19 }, { id: 481, pageNumber: 19 },
-        { id: 482, pageNumber: 19 }, { id: 483, pageNumber: 17 }, { id: 483, pageNumber: 23 },
+        { id: 482, pageNumber: 19 }, { id: 483, pageNumber: 17 },
         { id: 501, pageNumber: 27 }, { id: 502, pageNumber: 27 }, { id: 503, pageNumber: 27 },
         { id: 504, pageNumber: 27 }, { id: 505, pageNumber: 27 }, { id: 506, pageNumber: 27 },
         { id: 507, pageNumber: 27 }, { id: 508, pageNumber: 27 }, { id: 509, pageNumber: 27 },
@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 pageNumber += 1;
             }
             const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+            console.log(imageName);
             fullscreenImage.src = imageName;
         }
     }
