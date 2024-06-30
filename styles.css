@@ -14,10 +14,11 @@ body {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
+    text-align: center; /* Center content */
 }
 
 h1 {
-    text-align: center;
+    margin-top: 0; /* Remove default margin */
 }
 
 label {
@@ -34,11 +35,8 @@ select {
 
 .image-container {
     margin-top: 20px;
-    text-align: center;
-}
-
-#imageView {
-    max-width: 100%;
-    height: auto;
+    height: 400px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
     border-radius: 8px;
 }
