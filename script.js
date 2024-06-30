@@ -57,7 +57,7 @@
         { id: 540, pageNumber: 27 }
     ];
 
-    // Populate FIN dropdown options
+  // Populate FIN dropdown options
     data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.fin;
@@ -66,17 +66,20 @@
     });
 
     // Populate Crew dropdown options
-//    const crewOptions = [
-//        { value: 1, text: '1' },
-//        { value: 2, text: '2' }
-//    ];
+    const crewOptions = [
+        { value: 1, text: '1' },
+        { value: 2, text: '2' }
+    ];
     
-//    crewOptions.forEach(option => {
-//        const crewOption = document.createElement('option');
-//        crewOption.value = option.value;
-//        crewOption.textContent = option.text;
-//       crewDropdown.appendChild(crewOption);
-//    });
+    crewOptions.forEach(option => {
+        const crewOption = document.createElement('option');
+        crewOption.value = option.value;
+        crewOption.textContent = option.text;
+        crewDropdown.appendChild(crewOption);
+    });
+
+    // Set default value for Crew dropdown
+    crewDropdown.value = '1';
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
@@ -84,19 +87,20 @@
         const selectedData = data.find(item => item.fin === selectedFin);
         if (selectedData) {
             let pageNumber = selectedData.pageNumber;
- //           if (crewDropdown.value === '2') {
- //               pageNumber += 1;
- //           }
+            if (crewDropdown.value === '2') {
+                pageNumber += 1;
+            }
             const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
             fullscreenImage.src = imageName;
         }
     }
 
     finDropdown.addEventListener('change', updateImage);
-//    crewDropdown.addEventListener('change', updateImage);
+    crewDropdown.addEventListener('change', updateImage);
 
     // Initial image load
     updateImage();
+});
 
     // Initial adjustment on page load
     //window.dispatchEvent(new Event('resize'));
