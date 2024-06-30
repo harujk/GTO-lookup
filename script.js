@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
-    window.alert(1);
-  // Populate FIN dropdown options
+    console.log("entered"); 
+    // Populate FIN dropdown options
     data.forEach(item => {
         const option = document.createElement('option');
         option.value = item.fin;
@@ -67,15 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
         finDropdown.appendChild(option);
     });
 
-    window.alert(2);
+    console.log("1"); 
     // Populate Crew dropdown options
     const crewOptions = [
-        { value: 1, text: '1' },
-        { value: 2, text: '2' }
+        { value: '1', text: '1' },
+        { value: '2', text: '2' }
     ];
-
-        window.alert(3);
-
+    
+    console.log("2"); 
     crewOptions.forEach(option => {
         const crewOption = document.createElement('option');
         crewOption.value = option.value;
@@ -83,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         crewDropdown.appendChild(crewOption);
     });
 
+    console.log("3"); 
     // Set default value for Crew dropdown
     crewDropdown.value = '1';
 
@@ -105,8 +105,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial image load
     updateImage();
-});
-
-    // Initial adjustment on page load
-    //window.dispatchEvent(new Event('resize'));
 });
