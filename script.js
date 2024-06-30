@@ -62,8 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Populate FIN dropdown options
     data.forEach(item => {
         const option = document.createElement('option');
-        option.value = item.fin;
-        option.textContent = item.fin === 0 ? 'Select FIN' : item.fin;
+        option.value = item.pageNumber;
+        option.textContent = item.id === 0 ? 'Select FIN' : item.id;
+    console.log(option.textContent); 
         finDropdown.appendChild(option);
     });
 
