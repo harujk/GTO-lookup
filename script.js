@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
         const selectedFin = parseInt(finDropdown.value);
-        const selectedData = data.find(item => item.fin === selectedFin);
+        const selectedData = data.find(item => item.id === selectedFin);
         if (selectedData) {
             let pageNumber = selectedData.pageNumber;
             if (crewDropdown.value === '2') {
