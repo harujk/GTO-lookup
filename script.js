@@ -89,18 +89,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
-        const selectedFin = parseInt(finDropdown.value);
-        const selectedData = data.find(item => item.id === selectedFin);
-    console.log(selectedFin);
-        if (selectedData) {
-            let pageNumber = selectedData.pageNumber;
+        const pageNumber = parseInt(finDropdown.value);
+//        const selectedFin = parseInt(finDropdown.value);
+//        const selectedData = data.find(item => item.id === selectedFin);
+    console.log(pageNumber);
+//        if (selectedData) {
+//            let pageNumber = selectedData.pageNumber;
             if (crewDropdown.value === '2') {
                 pageNumber += 1;
             }
+    console.log(pageNumber);
             const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
             console.log(imageName);
             fullscreenImage.src = imageName;
-        }
+//        }
     }
 
     finDropdown.addEventListener('change', updateImage);
