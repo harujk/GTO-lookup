@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateImage() {
         const selectedFin = parseInt(finDropdown.value);
         const selectedData = data.find(item => item.id === selectedFin);
+    console.log(selectedFin);
         if (selectedData) {
             let pageNumber = selectedData.pageNumber;
             if (crewDropdown.value === '2') {
