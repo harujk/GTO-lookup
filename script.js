@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 540, pageNumber: 27 }
     ];
 
+    window.alert(1);
   // Populate FIN dropdown options
     data.forEach(item => {
         const option = document.createElement('option');
@@ -66,12 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
         finDropdown.appendChild(option);
     });
 
+    window.alert(2);
     // Populate Crew dropdown options
     const crewOptions = [
         { value: 1, text: '1' },
         { value: 2, text: '2' }
     ];
-    
+
+        window.alert(3);
+
     crewOptions.forEach(option => {
         const crewOption = document.createElement('option');
         crewOption.value = option.value;
