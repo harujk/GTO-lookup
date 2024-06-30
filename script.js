@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 465, pageNumber: 17 }, { id: 466, pageNumber: 17 }, { id: 467, pageNumber: 17 },
         { id: 468, pageNumber: 19 }, { id: 469, pageNumber: 19 }, { id: 470, pageNumber: 19 },
         { id: 471, pageNumber: 19 }, { id: 472, pageNumber: 19 }, { id: 473, pageNumber: 21 },
-        { id: 473, pageNumber: 23 }, { id: 474, pageNumber: 19 }, { id: 475, pageNumber: 19 },
+        { id: 474, pageNumber: 19 }, { id: 475, pageNumber: 19 },
         { id: 476, pageNumber: 19 }, { id: 477, pageNumber: 19 }, { id: 478, pageNumber: 19 },
         { id: 479, pageNumber: 19 }, { id: 480, pageNumber: 19 }, { id: 481, pageNumber: 19 },
         { id: 482, pageNumber: 19 }, { id: 483, pageNumber: 17 }, { id: 483, pageNumber: 23 },
