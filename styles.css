@@ -35,3 +35,7 @@ body, html {
     max-height: 100%;
     object-fit: contain;
 }
+
+#info {
+        text-align: center;
+}
