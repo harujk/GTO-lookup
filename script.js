@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update infoDiv with lavkit and soap info
         if (selectedItem) {
-            infoDiv.textContent = `lavkit: ${selectedItem.lavkit}, soap: ${selectedItem.soap}`;
+            infoDiv.textContent = `Lav Kit: ${selectedItem.lavkit === 1 ? 'T' : 'S'} Soap: ${selectedItem.soap === 1 ? 'T' : 'S'}`;
         } else {
             infoDiv.textContent = ''; // Clear if no matching item found
         }
