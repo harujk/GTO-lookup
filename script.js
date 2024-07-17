@@ -112,10 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
         let pageNumber = parseInt(finDropdown.value);
+        let actualPage = pageNumber;
         if (crewDropdown.value === '2') {
-            pageNumber += 1;
+            actualNumber += 1;
         }
-        const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
+        const imageName = `GTO${actualNumber.toString().padStart(4, '0')}.jpg`;
         fullscreenImage.src = imageName;
 
         // Find corresponding data entry
