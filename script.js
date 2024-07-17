@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fullscreenImage.src = imageName;
 
         // Find corresponding data entry
-        const selectedItem = data.find(item => item.id === parseInt(finNumber));
+        const selectedItem = data.find(item => item.id === finNumber);
 
         // Update infoDiv with lavkit and soap info
         if (selectedItem) {
