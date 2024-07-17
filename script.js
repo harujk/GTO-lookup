@@ -111,16 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
+        let finNumber = parseInt(finDropdown.textContent);
         let pageNumber = parseInt(finDropdown.value);
-        let actualPage = pageNumber;
         if (crewDropdown.value === '2') {
-            actualNumber += 1;
+            pageNumber += 1;
         }
-        const imageName = `GTO${actualNumber.toString().padStart(4, '0')}.jpg`;
+        const imageName = `GTO${pageNumber.toString().padStart(4, '0')}.jpg`;
         fullscreenImage.src = imageName;
 
         // Find corresponding data entry
-        const selectedItem = data.find(item => item.pageNumber === pageNumber);
+        const selectedItem = data.find(item => item.id === parseInt(finNumber));
 
         // Update infoDiv with lavkit and soap info
         if (selectedItem & selectItem.id > 0) {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             infoDiv.textContent = ''; // Clear if no matching item found
         }
-}
+    }
 
     finDropdown.addEventListener('change', updateImage);
     crewDropdown.addEventListener('change', updateImage);
