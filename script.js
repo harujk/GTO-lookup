@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update image when FIN or Crew dropdown changes
     function updateImage() {
-        let finNumber = parseInt(finDropdown.textContent);
-        let pageNumber = parseInt(finDropdown.value);
+        let originalPageNumber = parseInt(finDropdown.value);
+        let pageNumber = originalPageNumber;
         if (crewDropdown.value === '2') {
             pageNumber += 1;
         }
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fullscreenImage.src = imageName;
 
         // Find corresponding data entry
-        const selectedItem = data.find(item => item.id === finNumber);
+        const selectedItem = data.find(item => item.pageNumber === originalPageNumber);
 
         // Update infoDiv with lavkit and soap info
         if (selectedItem) {
